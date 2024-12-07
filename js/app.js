@@ -1,99 +1,223 @@
+
+// Chicken Crosses Roads by Yunus Herman
 /*-------------------------------- Constants --------------------------------*/
 
+const chickenAtHome = document.querySelector('#atHome');
+// console.log(chickenAtHome);
 
+const messageEl = document.querySelector('#message');
+// console.log(messageEl);
+
+const destinationImage = document.querySelector('.destination');
+// console.log(destinationImage);
+
+const chickenSaid = document.querySelector('#chickenSaid');
+
+//Array constants (the name should be plural):
+
+const chickenCrossElements = document.querySelectorAll('.chickenCross');
+// console.log(chickenCrossElements);
+
+const road1Elements = document.querySelectorAll('.road1');
+// console.log(road1Elements);
+
+const road2Elements = document.querySelectorAll('.road2');
+// console.log(road2Elements);
+
+const road3Elements = document.querySelectorAll('.road3');
+// console.log(road3Elements);
+
+const road4Elements = document.querySelectorAll('.road4');
+// console.log(road4Elements);
+
+const road5Elements = document.querySelectorAll('.road5');
+// console.log(road5Elements);
+
+const playAgainButton = document.querySelector('#play-again-button');
 
 /*---------------------------- Variables (state) ----------------------------*/
 
+let stopCarsArray = [];
 
+const chickenPlayer = '<img src="./images/start-chicken.jpg" alt="player">';
+const runningChicken = '<img src="./images/running-chicken.jpg" alt="running-chicken">';
+const deadChicken ='<img src="./images/dead-chicken.png" alt="dead-chicken">';
+const winnerChicken = '<img src="./images/winner-chicken.png" alt="winner-chicken">';
+const sadWifeChicken = '<img src="./images/sad-wife-chicken.png" alt="sad-wife-chicken">';
+const finishLine = '<img src="./images/finish.jpg" alt="finish">';
+const chickenCoop = '<img src="./images/chickencoop.jpg" alt="chickenCoop">';
+
+
+const redTruckRight = '<img src="./images/red-truck-right.png" alt="red-truck-right">';
+const redTruckLeft = '<img src="./images/red-truck-left.png" alt="red-truck-left">';
+
+const redCarRight = '<img src="./images/red-car-right.png" alt="red-car-right">';
+const redCarLeft = '<img src="./images/red-car-left.png" alt="red-car-left">';
+
+const blueCarRight = '<img src="./images/blue-car-right.png" alt="blue-car-right">';
+const blueCarLeft = '<img src="./images/blue-car-left.png" alt="blue-car-left">';
+
+const greenCarRight = '<img src="./images/green-car-right.png" alt="green-car-right">';
+const greenCarLeft = '<img src="./images/green-car-left.png" alt="green-car-left">';
+
+const greyCarRight = '<img src="./images/grey-car-right.png" alt="grey-car-right">';
+const greyCarLeft = '<img src="./images/grey-car-left.png" alt="grey-car-left">';
+
+const pinkCarRight = '<img src="./images/pink-car-right.png" alt="pink-car-right">';
+const pinkCarLeft = '<img src="./images/pink-car-left.png" alt="pink-car-left">';
+
+const yellowCarRight = '<img src="./images/yellow-car-right.png" alt="yellow-car-right">';
+const yellowCarLeft = '<img src="./images/yellow-car-left.png" alt="yellow-car-left">';
 
 /*------------------------ Cached Element References ------------------------*/
 
 
 
 /*-------------------------------- Functions --------------------------------*/
-const handleBoxClick = (event) => {
-    if (winner === true) {
-      return;
-    }
-    const squareIndex = event.target.id;
-  
-  
-    if (board[squareIndex] !== '') {
-      return;
-    }
-  
-    board[squareIndex] = turn
-  
-    updateBoard();
-    checkForWinner();
-    updateMessage();
-    switchPlayerTurn();
-   
-  }
-
-
-const updateBoard = () => {
-    console.log("Update board called");
-  
-    //['', '', '', '', '', '', '', '', ''];
-  
-    road1.forEach((element, index) => {
-  
-      boxes[index].textContent = element
-    })
-  
-  }
-  
-  const updateMessage = () => {
-    console.log("Update message called");
-  
-    if (winner === false && tie === false) {
-      if (turn === 'X') {
-        messageEl.textContent = `Its X's turn`;
-      } else {
-        messageEl.textContent = `Its O's turn`;
-      }
-    } else if (winner === true) {
-      messageEl.textContent = `${turn} wins!`;
-    }
-  }
-
-const render = () => {
-    console.log("Rendering board", board);
-    updateBoard();
-    updateMessage();
-}
 
 const init = () => {
-    road1 = ['0','1','2','3','4','5','6','7','8','9'];
-    turn = 'X';
-    winner = false;
-    die = false;
-
-    
+  chickenCrossElements[0].innerHTML = chickenPlayer;
+  chickenPosition = 0;
+  winner = false;
+  die = false;
 }
 
 
+const movingCars = (roadArray,startPosition,speed,car) => {
+  let position = startPosition;
+ 
+   const stopCar = setInterval(() => {
+      let currentRoadEl = roadArray[position];
+      if (position > 0) {
+        let prevRoadEl = roadArray[position-1];
+        prevRoadEl.innerHTML = '';
+      } 
+  
+      if (position === 11) {
+        position = 0;
+        currentRoadEl = roadArray[position];
+      }
+
+      if (currentRoadEl.innerHTML === '') {
+        currentRoadEl.innerHTML = car;
+      } else {
+        die = true;
+        updateMessage();
+        currentRoadEl.innerHTML = deadChicken;
+      }
+      
+      position ++;
+ 
+    }, speed); 
+  
+  stopCarsArray.push(stopCar);
+}
+
+
+const stopAllCars = () => {
+  stopCarsArray.forEach((Element) => {
+    clearInterval(Element);
+  }); 
+}
+
+
+const updateMessage = () => {
+  console.log("Update message called");
+ 
+  if (winner === true) {
+    messageEl.style.color = 'blue';
+    messageEl.textContent = `Congratulation! You are home!`;
+    chickenSaid.style.color = 'blue';
+    chickenSaid.textContent = "'Yay! I'm awesome!'";
+    destinationImage.innerHTML = winnerChicken;
+    chickenAtHome.innerHTML = chickenPlayer;
+    stopAllCars();
+    playAgainButton.style.display = 'block';
+  } 
+
+  if (die === true) {
+    messageEl.style.color = 'red';
+    messageEl.textContent = `So Sorry! You are dead!`;
+    chickenSaid.style.color = 'red';
+    chickenSaid.textContent = "'Ooo cluck! I'm dead!'";
+    destinationImage.innerHTML = sadWifeChicken;
+    stopAllCars();
+    playAgainButton.style.display = 'block';
+  }
+}
+
+const playAgainButtonClicked = () => {
+  playAgainButton.style.display = 'none';
+  location.reload(); //refresh the page
+} 
+
+const play = () => {
+    init();
+  
+  // Note: 
+  // movingCars = (roadArray,startPosition,speed,car)
+  //
+  // roadArray ===> which road? (the option: road1Elements,road2Elements ... road5Elements) 
+  // startPosition ===> car star position in the road array (the options: 0-11)
+  // speed ===> the speed of the car. 500 means 500 milliseconds. 1 second is 1000 milliseconds.
+  // car ===> the car selection: redCarLeft, redCarRight, 
+  //   redTruckLeft, redTruckRight,
+  //   blueCarLeft, blueCarRight, 
+  //   greenCarLeft, greenCarRight, 
+  //   greyCarLeft, greyCarRight, 
+  //   pinkCarLeft,pinkCarRight,
+  //   yellowCarLeft, yellowCarRight
+  
+  
+  //First road right direction
+  movingCars(road1Elements,2,2000,blueCarRight);
+  movingCars(road1Elements,5,2000,redCarRight);
+  
+  //Second road left direction
+  movingCars(road2Elements,1,400,redTruckLeft);
+  movingCars(road2Elements,5,400,greenCarLeft);
+  
+  //Third road left direction
+  movingCars(road3Elements,7,500,pinkCarLeft);
+  
+  //Fourth road right direction
+  movingCars(road4Elements,9,200,greyCarRight);
+  
+  //Fifth road left direction
+  movingCars(road5Elements,2,500,yellowCarLeft);
+  movingCars(road5Elements,5,500, redCarLeft);
+  movingCars(road5Elements,8,500, greenCarLeft);
+  
+  }
+
 /*----------------------------- Event Listeners -----------------------------*/
-
-
-// const elements = document.querySelectorAll('.road-box');
-
-// elements.forEach((element, index) => {
-//   setTimeout(() => {
-//     // Apply your effect here, e.g., change class or style
-//     element.classList.add('visible'); 
-//   }, index * 500); // Delay in milliseconds, increasing for each element
-// });
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowDown') {
       // Your code to execute when the down arrow key is pressed
+      if (winner === false && die === false) {
+        let currentChickenPosition = chickenCrossElements[chickenPosition];
+        // console.log(currentChickenPosition);
+        chickenCrossElements[chickenPosition].innerHTML = '';
+        chickenPosition ++;
+        if (chickenCrossElements[chickenPosition].innerHTML != ''){
+          die = true;
+          chickenCrossElements[chickenPosition].innerHTML = deadChicken;
+        } else {
+          chickenCrossElements[chickenPosition].innerHTML = runningChicken;
+        }
+      }
+      
+      if (chickenAtHome.innerHTML != '') {
+        winner = true;
+      }
       console.log('Down arrow key pressed!');
+      updateMessage();
     }
   });
 
-const imageElement = document.querySelector('#roadbox0');
-console.dir(imageElement);
+ 
 
-imageElement.innerHTML = '<img src="./images/right.png" alt="">'; 
+playAgainButton.addEventListener('click', playAgainButtonClicked);
+
+play();

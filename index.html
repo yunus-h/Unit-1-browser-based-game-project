@@ -5,93 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/app.js"></script>
-  <title>Chicken Cross Game</title>
+  <title>Crossing Chicken</title>
 </head>
 <body>
-  <h1>Chicken Crosses Roads</h1>
-  <h2 id="message">press down arrow (↓) to go back home! but becareful, don't get hit by cars!</h2>
-  <h2 id="timer">Timer</h2>
+  <h1>Chicken Crossing the Road Game</h1>
+  <h2 id="message">press down arrow (↓) to go home! but becareful, don't get hit by the cars!</h2>
+  <nav>
+    <button id="play-again-button">Play Again</button>
+  </nav>
 
   <section>
-    <p>It was hard day! Finaly, I'm going home</p>
-    <!-- <div class= "start-chicken">
-        <img src="./images/start-chicken.jpg" alt="start-chicken">
-    </div> -->
+    <p id="chickenSaid">'It was hard day!
+        Finaly, I'm going home'</p>
   </section>
 
-  <section class="start-boxes">
-    <div class="start-box" id="0"></div>
-    <div class="start-box" id="1"></div>
-    <div class="start-box" id="2"></div>
-    <div class="start-box" id="3"></div>
-    <div class="start-box" id="4"></div>
-    <div class="start-box" id="5"><img src="./images/start-chicken.jpg" alt="start-chicken"></div>
-    <div class="start-box" id="6"></div>
-    <div class="start-box" id="7"></div>
-    <div class="start-box" id="8"></div>
-    <div class="start-box" id="9"></div>
+  <section class="starts">
+    <div class="start chickenCross" id="start"></div>
   </section>
 
-  <section class="road-boxes">
-    <div class="road-box right" id="roadbox0"><img src="./images/right.png" alt="img0"></div>
-    <div class="road-box right" id="roadbox1"></div>
-    <div class="road-box right" id="2"></div>
-    <div class="road-box right" id="3"></div>
-    <div class="road-box right" id="4"></div>
-    <div class="road-box right" id="5"></div>
-    <div class="road-box right" id="6"></div>
-    <div class="road-box right" id="7"></div>
-    <div class="road-box right" id="8"></div>
-    <div class="road-box right" id="9"></div>
-    <div class="road-box left" id="10"></div>
-    <div class="road-box left" id="11"></div>
-    <div class="road-box left" id="12"></div>
-    <div class="road-box left" id="13"></div>
-    <div class="road-box left" id="14"></div>
-    <div class="road-box left" id="15"></div>
-    <div class="road-box left" id="16"></div>
-    <div class="road-box left" id="17"></div>
-    <div class="road-box left" id="18"></div>
-    <div class="road-box left" id="19"></div>
-    <div class="road-box right" id="20"></div>
-    <div class="road-box right" id="21"></div>
-    <div class="road-box right" id="22"></div>
-    <div class="road-box right" id="23"></div>
-    <div class="road-box right" id="24"></div>
-    <div class="road-box right" id="25"></div>
-    <div class="road-box right" id="26"></div>
-    <div class="road-box right" id="27"></div>
-    <div class="road-box right" id="28"></div>
-    <div class="road-box right" id="29"></div>
-    <div class="road-box left" id="30"></div>
-    <div class="road-box left" id="31"></div>
-    <div class="road-box left" id="32"></div>
-    <div class="road-box left" id="33"></div>
-    <div class="road-box left" id="34"></div>
-    <div class="road-box left" id="35"></div>
-    <div class="road-box left" id="36"></div>
-    <div class="road-box left" id="37"></div>
-    <div class="road-box left" id="38"></div>
-    <div class="road-box left" id="39"></div>
-    <div class="road-box right" id="40"></div>
-    <div class="road-box right" id="41"></div>
-    <div class="road-box right" id="42"></div>
-    <div class="road-box right" id="43"></div>
-    <div class="road-box right" id="44"></div>
-    <div class="road-box right" id="45"></div>
-    <div class="road-box right" id="46"></div>
-    <div class="road-box right" id="47"></div>
-    <div class="road-box right" id="48"></div>
-    <div class="road-box right" id="49"></div>
+  <section class="roads-area">
+    <section class = "roads-lines">
+      <div class="road1" id="road1-0"></div>
+      <div class="road1" id="road1-1"></div>
+      <div class="road1" id="road1-2"></div>
+      <div class="road1" id="road1-3"></div>
+      <div class="road1" id="road1-4"></div>
+      <div class="road1 chickenCross" id="road1-5"></div>
+      <div class="road1" id="road1-6"></div>
+      <div class="road1" id="road1-7"></div>
+      <div class="road1" id="road1-8"></div>
+      <div class="road1" id="road1-9"></div>
+      <div class="road1" id="road1-10"></div>
+    </section>
+
+    <section class ="roads-lines roads-lines-reverse">
+      <div class="road2" id="road2-0"></div>
+      <div class="road2" id="road2-1"></div>
+      <div class="road2" id="road2-2"></div>
+      <div class="road2" id="road2-3"></div>
+      <div class="road2" id="road2-4"></div>
+      <div class="road2 chickenCross" id="road2-5"></div>
+      <div class="road2" id="road2-6"></div>
+      <div class="road2" id="road2-7"></div>
+      <div class="road2" id="road2-8"></div>
+      <div class="road2" id="road2-9"></div>
+      <div class="road2" id="road2-10"></div>
+    </section>
+    
+    <section class ="roads-lines roads-lines-reverse">
+      <div class="road3" id="road3-0"></div>
+      <div class="road3" id="road3-1"></div>
+      <div class="road3" id="road3-2"></div>
+      <div class="road3" id="road3-3"></div>
+      <div class="road3" id="road3-4"></div>
+      <div class="road3 chickenCross" id="road3-5"></div>
+      <div class="road3" id="road3-6"></div>
+      <div class="road3" id="road3-7"></div>
+      <div class="road3" id="road3-8"></div>
+      <div class="road3" id="road3-9"></div>
+      <div class="road3" id="road3-10"></div>
+    </section>
+
+    <section class ="roads-lines">
+      <div class="road4" id="road4-0"></div>
+      <div class="road4" id="road4-1"></div>
+      <div class="road4" id="road4-2"></div>
+      <div class="road4" id="road4-3"></div>
+      <div class="road4" id="road4-4"></div>
+      <div class="road4 chickenCross" id="road4-5"></div>
+      <div class="road4" id="road4-6"></div>
+      <div class="road4" id="road4-7"></div>
+      <div class="road4" id="road4-8"></div>
+      <div class="road4" id="road4-9"></div>
+      <div class="road4" id="road4-10"></div>
+    </section>
+
+    <section class ="roads-lines roads-lines-reverse">
+      <div class="road5" id="road5-0"></div>
+      <div class="road5" id="road5-1"></div>
+      <div class="road5" id="road5-2"></div>
+      <div class="road5" id="road5-3"></div>
+      <div class="road5" id="road5-4"></div>
+      <div class="road5 chickenCross" id="road5-5"></div>
+      <div class="road5" id="road5-6"></div>
+      <div class="road5" id="road5-7"></div>
+      <div class="road5" id="road5-8"></div>
+      <div class="road5" id="road5-9"></div>
+      <div class="road5" id="road5-10"></div>
+    </section>
+
   </section>
 
-  <section>
+  <section class="finals">
+    <div class="final chickenCross" id="atHome"></div>
+  </section>
+
+  <!-- <section>
     <div class = "car"></div>
-  </section>
+  </section> -->
   <br>
   <section>
-    <div class = "final">
-        <img src="./images/chickencoop.jpg" alt="final" id="final">
+    <div class = "destination">
+        <img src="./images/chickencoop.jpg" alt="final">
     </div>
   </section>
 
