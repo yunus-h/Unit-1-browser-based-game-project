@@ -10,7 +10,7 @@ The name: Chicken Crossing the Road Game \
 The link: https://yunus-h.github.io/chicken-crossing-the-road-game/
 
 ![game layout](images/start.png)
-After a long day of working as a software engineer, this chicken is happy to finally go home. But wait! He lives across the street and there are lots of cars! Let's help this chicken cross the road! If the chicken gets home safely, it's a win, but if it gets hit by a car, it's a loss! 
+After a long day of working as a software engineer, this chicken is happy to finally go home. But wait! He lives across the street and there are lots of cars! Let's help this chicken cross the road! If the chicken gets home safely, it's a win, but if he gets hit by a car, it's a loss! 
 
 
 ![the game is on](images/chickenrun.png)
