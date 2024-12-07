@@ -6,7 +6,7 @@
 "Why did the chicken cross the road?" is a common riddle joke with the answer being "To get to the other side." because of that, this game was made. And also I have chickens in my backyard and I love them very much!
 
 ### Name and Link
-The name: Chicken Crossing the Road Game
+The name: Chicken Crossing the Road Game \
 The link: https://yunus-h.github.io/chicken-crossing-the-road-game/
 
 ![game layout](images/start.png)
