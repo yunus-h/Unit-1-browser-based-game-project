@@ -13,8 +13,6 @@ const destinationImage = document.querySelector('.destination');
 
 const chickenSaid = document.querySelector('#chickenSaid');
 
-//Array constants (the name should be plural):
-
 const chickenCrossElements = document.querySelectorAll('.chickenCross');
 // console.log(chickenCrossElements);
 
@@ -156,37 +154,24 @@ const play = () => {
   
   // Note: 
   // movingCars = (roadArray,startPosition,speed,car)
-  //
-  // roadArray ===> which road? (the option: road1Elements,road2Elements ... road5Elements) 
-  // startPosition ===> car star position in the road array (the options: 0-11)
-  // speed ===> the speed of the car. 500 means 500 milliseconds. 1 second is 1000 milliseconds.
-  // car ===> the car selection: redCarLeft, redCarRight, 
-  //   redTruckLeft, redTruckRight,
-  //   blueCarLeft, blueCarRight, 
-  //   greenCarLeft, greenCarRight, 
-  //   greyCarLeft, greyCarRight, 
-  //   pinkCarLeft,pinkCarRight,
-  //   yellowCarLeft, yellowCarRight
-  
-  
   //First road right direction
-  movingCars(road1Elements,2,2000,blueCarRight);
-  movingCars(road1Elements,5,2000,redCarRight);
+  movingCars(road1Elements,2,350,blueCarRight);
+  movingCars(road1Elements,5,350,redCarRight);
   
   //Second road left direction
   movingCars(road2Elements,1,400,redTruckLeft);
   movingCars(road2Elements,5,400,greenCarLeft);
   
   //Third road left direction
-  movingCars(road3Elements,7,500,pinkCarLeft);
+  movingCars(road3Elements,7,300,pinkCarLeft);
   
   //Fourth road right direction
   movingCars(road4Elements,9,200,greyCarRight);
   
   //Fifth road left direction
-  movingCars(road5Elements,2,500,yellowCarLeft);
-  movingCars(road5Elements,5,500, redCarLeft);
-  movingCars(road5Elements,8,500, greenCarLeft);
+  movingCars(road5Elements,2,300,yellowCarLeft);
+  movingCars(road5Elements,5,300, redCarLeft);
+  movingCars(road5Elements,8,300, greenCarLeft);
   
   }
 
