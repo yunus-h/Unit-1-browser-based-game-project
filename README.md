@@ -9,6 +9,7 @@
 The name: Chicken Crossing the Road Game \
 The link: https://yunus-h.github.io/chicken-crossing-the-road-game/
 
+### Getting started
 ![game layout](images/start.png)
 After a long day of working, this chicken is happy to finally go home. But wait! He lives across the street and there are lots of cars! Let's help this chicken cross the road! If the chicken gets home safely, it's a win, but if he gets hit by a car, it's a loss! 
 
@@ -26,9 +27,11 @@ Lose: If you crash into a car or get hit by a car! The poor chicken's wife is ve
 
 The game consists of 5 streets, some to the right and some to the left. These streets are actually arrays of flex-boxes. I used the addEventListener() method to make the chicken move one step down when the down arrow button is pressed. And I also used the SetInterval() method to make the cars move at different speeds. The DOM is also used to replace text, images, styles and others.
 
-I downloaded images of cars, chickens, and so on from free sites and also a lot of sources of information about HTML, CSS, and Javascript.
+
 
 ### Attributions:
+
+I downloaded images of cars, chickens, and so on from free sites and also a lot of sources of information about HTML, CSS, and Javascript. \
 https://fonts.google.com \
 https://stackoverflow.com/questions/11702319/how-to-move-an-image-with-javascript \
 https://www.w3schools.com/jsreF/met_win_setinterval.asp \
